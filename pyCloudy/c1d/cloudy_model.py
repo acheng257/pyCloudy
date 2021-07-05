@@ -1160,7 +1160,7 @@ class CloudyModel(object):
             self.log_.warn(err, calling = self.calling)
             return None
 
-    def _i_line(self, ref):
+    """def _i_line(self, ref):
         if type(ref) is str or type(ref) is np.str_:
             if ref in self.line_labels_17:
                 to_return = np.argwhere(self.line_labels_17 == ref)[0][0]
@@ -1176,7 +1176,7 @@ class CloudyModel(object):
         else:
             self.log_.warn(str(type(ref)) + ' is not a correct line type - 3', calling = self.calling)
             to_return = None
-        return to_return
+        return to_return"""
 
     def _i_emis(self, ref):
         """
