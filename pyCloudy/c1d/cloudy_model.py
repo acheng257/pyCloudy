@@ -209,7 +209,6 @@ class CloudyModel(object):
         key = 'rad'
         self._res[key] = self.read_outputs(key)
         if self._res[key] is not None:
-            print("line 212")
             self.empty_model = False
             self.n_zones_full = self._res[key].size
             self.zones_full = np.arange(self.n_zones_full)
@@ -233,8 +232,6 @@ class CloudyModel(object):
             if self.Phi0 == 0.:
                 self.Phi = self.Q / (4 * np.pi * self.r_in**2)
                 self.Phi0 = self.Phi.sum()
-        else:
-            print("_res[key] is None")
 
 
 
@@ -290,6 +287,7 @@ class CloudyModel(object):
         key = 'lin'
         self._res[key] = self.read_outputs(key, case_sensitive='upper')
         if self._res[key] is not None:
+            print("not None")
             if self.line_is_log:
                 trans_line = lambda x: pow(10., x)
             else:
@@ -323,6 +321,8 @@ class CloudyModel(object):
                 self.lines[i] = trans_line(lines[label])
             self.slines = np.asarray([label for label in self.line_labels if label[-2] != '_'])
             self.rlines = np.asarray([(label[:-2], label) [label[-2] != '_'] for label in self.line_labels])
+        else:
+            print("None")
 
     def _init_emis(self):
         key = 'emis'
