@@ -693,6 +693,7 @@ class CloudyModel(object):
     def read_outputs(self, extension, delimiter='\t', comments=';', names=True, **kwargs):
         file_ = self.model_name + '.' + extension
         if os.path.exists(file_):
+            self.log_.message('line 696', calling=self.calling)
             try:
                 res = np.genfromtxt(file_, delimiter=delimiter, comments=comments, names=names, **kwargs) # some arguments can be sent here
                 self.log_.message(file_ + ' read', calling=self.calling)
