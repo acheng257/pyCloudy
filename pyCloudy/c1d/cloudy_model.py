@@ -286,6 +286,7 @@ class CloudyModel(object):
     def _init_lin(self):
         key = 'lin'
         self._res[key] = self.read_outputs(key, case_sensitive='upper')
+        print(self._res[key])
         if self._res[key] is not None:
             print("not None")
             if self.line_is_log:
