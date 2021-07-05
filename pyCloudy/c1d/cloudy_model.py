@@ -691,6 +691,7 @@ class CloudyModel(object):
         return True
 
     def read_outputs(self, extension, delimiter='\t', comments=';', names=True, **kwargs):
+        print("hi")
         file_ = self.model_name + '.' + extension
         if os.path.exists(file_):
             self.log_.message('line 696', calling=self.calling)
