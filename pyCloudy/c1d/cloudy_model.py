@@ -698,7 +698,6 @@ class CloudyModel(object):
             try:
                 res = np.genfromtxt(file_, delimiter=delimiter, comments=comments, names=names, **kwargs) # some arguments can be sent here
                 self.log_.message(file_ + ' read', calling=self.calling)
-                print(res)
             except ValueError:
                 if self.cloudy_version_major == '08':
                     self.log_.error(file_ + ' NOT read. You may need to remove \t depth in line 132 and to move "strcat( chHeader, "\t" )" from line 139 to 135 in source/punch_line.cpp',
@@ -715,6 +714,7 @@ class CloudyModel(object):
         else:
                 self.log_.warn(file_ + ' does not exist.', calling=self.calling)
                 res = None
+        print(res)
         return res
 
     def _get_over_range(self, var):
