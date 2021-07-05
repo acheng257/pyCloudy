@@ -1236,8 +1236,8 @@ class CloudyModel(object):
         Return line intensity.
         ref can be a label or a number (starting at 0 with the first line)
         """
-        if self._init_emis(ref) is not None:
-            return self.lines[self._init_emis(ref)]
+        if self._init_emis() is not None:
+            return self.lines[self._init_emis()]
         else:
             return None
 
