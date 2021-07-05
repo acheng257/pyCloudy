@@ -209,6 +209,7 @@ class CloudyModel(object):
         key = 'rad'
         self._res[key] = self.read_outputs(key)
         if self._res[key] is not None:
+            print("line 212")
             self.empty_model = False
             self.n_zones_full = self._res[key].size
             self.zones_full = np.arange(self.n_zones_full)
@@ -691,10 +692,8 @@ class CloudyModel(object):
         return True
 
     def read_outputs(self, extension, delimiter='\t', comments=';', names=True, **kwargs):
-        print("hi")
         file_ = self.model_name + '.' + extension
         if os.path.exists(file_):
-            self.log_.message('line 696', calling=self.calling)
             try:
                 res = np.genfromtxt(file_, delimiter=delimiter, comments=comments, names=names, **kwargs) # some arguments can be sent here
                 self.log_.message(file_ + ' read', calling=self.calling)
@@ -714,7 +713,6 @@ class CloudyModel(object):
         else:
                 self.log_.warn(file_ + ' does not exist.', calling=self.calling)
                 res = None
-        print(res)
         return res
 
     def _get_over_range(self, var):
