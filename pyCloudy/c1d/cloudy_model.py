@@ -93,7 +93,7 @@ class CloudyModel(object):
     ## Cloudy model object
     def __init__(self, model_name, verbose=None,
                  read_all_ext = True, read_rad=True, read_phy=True, read_emis = True, read_grains = False,
-                 read_cont = True, read_heatcool = False, read_lin = True, read_opd = False,
+                 read_cont = True, read_heatcool = False, read_lin = False, read_opd = False,
                  read_pressure=False, read_abunds = False,
                  list_elem = LIST_ELEM, distance = None, line_is_log = False,
                  emis_is_log = True,
