@@ -233,6 +233,8 @@ class CloudyModel(object):
             if self.Phi0 == 0.:
                 self.Phi = self.Q / (4 * np.pi * self.r_in**2)
                 self.Phi0 = self.Phi.sum()
+        else:
+            print("_res[key] is None")
 
 
 
