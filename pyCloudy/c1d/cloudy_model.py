@@ -2010,7 +2010,6 @@ def load_models(model_name = None, mod_list = None, n_sample = None, verbose = F
             return None
         mod_list = random.sample(mod_list, n_sample)
     m = []
-    cm = None
     for outfile in mod_list:
         if outfile[-4::] == '.out':
             model_name = outfile[0:-4]
@@ -2021,6 +2020,7 @@ def load_models(model_name = None, mod_list = None, n_sample = None, verbose = F
         except:
             if verbose:
                 print('{0} model NOT read'.format(outfile[0:-4]))
+        cm = CloudyModel(model_name, **kwargs)
         if not cm.aborted:
             m.append(cm)
         if verbose:
